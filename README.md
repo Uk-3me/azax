@@ -24,7 +24,7 @@ import DEA
 
 During DEA, the input group of samples will be compared to the rest of the samples. The degree of difference is measured in fold change which is the mean(group1) divided by the mean(group2) and the significance of the difference is measured using a Student t-test with Bonferroni multiplicity correction as an option. This returns a dataframe with the p-value and fold change of each differentially expressed gene. P-value > 0.05 are removed. This output is then plotted onto a volcano plot for easy visualization.
 
-# Available Tools in the GMMchi_scs_pipeline Package
+# Available Tools in the DEA Package
 
 ## Differentially Expressed Genes
 
