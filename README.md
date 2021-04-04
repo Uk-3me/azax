@@ -1,4 +1,4 @@
-# DEA
+# Differential Expression Analysis (DEA)
 
 DEA stands for differential expression analysis, a common analysis in bioinformatics done to explore the most significantly differentially expressed genes between 2 predefined groups. DEA is a simple python package that implements related-tools for differential expression analysis as well as visualizing the output on a volcano plot.
 
