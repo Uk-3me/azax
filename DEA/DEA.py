@@ -3,13 +3,13 @@ from scipy import stats
 from adjustText import adjust_text
 
 
-def compare_clusters(orgX, comp, correction=True):
+def compare_clusters(input_data, X_label, correction=True):
     # EMT group
-    x_comp = pd.DataFrame(orgX.loc[:, X_label])
+    x_comp = pd.DataFrame(input_data.loc[:, X_label])
 
     # NonEMT group
     x_rest = pd.DataFrame(
-        orgX.loc[:, [a for a in list(orgX) if a not in X_label]])
+        input_data.loc[:, [a for a in list(input_data) if a not in X_label]])
 
     # calculate mean
     comp_mean = np.mean(x_comp, axis=1)
@@ -36,14 +36,13 @@ def compare_clusters(orgX, comp, correction=True):
     FCdown = pd.DataFrame({'FCdown': FCdown})
 
     table_compup = pd.concat([FCup, P_V], axis=1)
-    table_compdown = pd.concat([FCdown, P_V], axis=1)
+
     # sort
     table_compup = table_compup.sort_values('FCup', ascending=False)
-    table_compdown = table_compdown.sort_values('FCdown', ascending=False)
+
     # if p-value<0.05, delete row
     table_filtup = table_compup[table_compup.P_V <= 0.05]
-    table_filtdown = table_compdown[table_compdown.P_V <= 0.05]
-    pd.set_option('display.max_rows', 200)
+
     return table_filtup
 
 
